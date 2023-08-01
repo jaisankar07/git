@@ -16,8 +16,10 @@ pipeline {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
-        def workspaceDir = "/var/lib/jenkins/workspace/springboot"
-        sh 'cd spring-boot- && mvn clean package'
+        script {
+                    def workspaceDir = "/var/lib/jenkins/workspace/springboot"
+                    sh "cd ${workspaceDir}/spring-boot- && your-other-commands-here"
+                }
       }
     }
     stage('Static Code Analysis') {
